@@ -163,7 +163,7 @@ def retrain_model_background(uploaded_files: List[UploadFile], class_labels: Lis
         training_status["progress"] = 10
         
         # Create temporary directory for new data
-        temp_dir = "temp_training_data"
+        temp_dir = "data"
         os.makedirs(temp_dir, exist_ok=True)
         
         training_status["message"] = "Saving uploaded files..."
@@ -183,7 +183,7 @@ def retrain_model_background(uploaded_files: List[UploadFile], class_labels: Lis
         training_status["progress"] = 40
         
         # Combine with existing training data
-        existing_train_dir = "data/train"
+        existing_train_dir = "../data/train"
         if os.path.exists(existing_train_dir):
             # Copy existing data to temp directory
             for class_name in os.listdir(existing_train_dir):
